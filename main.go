@@ -11,10 +11,8 @@ import (
 )
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		fmt.Println("Error loading .env file")
-	}
+	godotenv.Load()
+
 	scraper := twitterscraper.New()
 	scraper.LoginOpenAccount()
 	profile, err := scraper.GetProfile(os.Getenv("TWITTER_USERNAME"))
